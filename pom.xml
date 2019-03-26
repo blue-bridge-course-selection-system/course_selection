@@ -18,6 +18,7 @@
         <module>config-server</module>
         <module>student-view</module>
         <module>workers-view</module>
+        <module>common</module>
     </modules>
 
     <groupId>cn.wisdsoft</groupId>
