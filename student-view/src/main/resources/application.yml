@@ -1,0 +1,16 @@
+server:
+  port: 9008
+
+spring:
+  application:
+    name: student-view
+  thymeleaf:
+    ###使页面校验轻松
+    mode: LEGACYHTML5
+    ###将页面缓存关闭
+    cache: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka
