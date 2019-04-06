@@ -18,6 +18,7 @@
         <module>config-server</module>
         <module>student-view</module>
         <module>workers-view</module>
+        <module>ddms-interface</module>
         <module>common</module>
     </modules>
 
