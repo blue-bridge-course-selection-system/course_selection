@@ -42,8 +42,6 @@ public class ElectiveCourseEntity implements Serializable {
     private Integer termId;
     //学院名称
     private String collegeName;
-    //学院ID
-    private String collegeId;
     //0未删除、1已删除
     private String deleteFlag;
     //备注
@@ -199,15 +197,6 @@ public class ElectiveCourseEntity implements Serializable {
 
     public ElectiveCourseEntity setCollegeName(String collegeName) {
         this.collegeName = collegeName;
-        return this;
-    }
-
-    public String getCollegeId() {
-        return collegeId;
-    }
-
-    public ElectiveCourseEntity setCollegeId(String collegeId) {
-        this.collegeId = collegeId;
         return this;
     }
 

@@ -1,6 +1,7 @@
 package cn.wisdsoft.service.impl;
 
 import cn.wisdsoft.mapper.StudentMapper;
+import cn.wisdsoft.pojo.StudentElectiveEntity;
 import cn.wisdsoft.pojo.StudentEntity;
 import cn.wisdsoft.service.StudentService;
 import cn.wisdsoft.util.ElectiveResult;
@@ -29,5 +30,10 @@ public class StudentServiceImpl implements StudentService {
     public ElectiveResult insert(StudentEntity student) {
         studentMapper.insertOne(student);
         return ElectiveResult.ok();
+    }
+
+    @Override
+    public ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity) {
+        return null;
     }
 }

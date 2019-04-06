@@ -1,5 +1,6 @@
 package cn.wisdsoft.service;
 
+import cn.wisdsoft.pojo.StudentElectiveEntity;
 import cn.wisdsoft.pojo.StudentEntity;
 import cn.wisdsoft.util.ElectiveResult;
 
@@ -23,4 +24,11 @@ public interface StudentService {
      * @return JSON数据
      */
     ElectiveResult insert(StudentEntity student);
+
+    /**
+     * 插入学生选课信息
+     * @param electiveEntity 学生选课子表对象
+     * @return JSON数据
+     */
+    ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity);
 }

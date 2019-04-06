@@ -16,8 +16,8 @@ public class CourseLibraryEntity implements Serializable {
     private Short classTime;
     //学分
     private Short credit;
-    //学院ID
-    private String collegeId;
+    //学院名称
+    private String collegeName;
     //课程组外键
     private Long courseGroupId;
     //备注
@@ -59,12 +59,12 @@ public class CourseLibraryEntity implements Serializable {
         return this;
     }
 
-    public String getCollegeId() {
-        return collegeId;
+    public String getCollegeName() {
+        return collegeName;
     }
 
-    public CourseLibraryEntity setCollegeId(String collegeId) {
-        this.collegeId = collegeId;
+    public CourseLibraryEntity setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
         return this;
     }
 
