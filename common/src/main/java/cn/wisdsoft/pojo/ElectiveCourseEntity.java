@@ -20,10 +20,10 @@ public class ElectiveCourseEntity implements Serializable {
     private String teacherId;
     //教师名称
     private String teacherName;
-    //上课时间
-    private String classTime;
-    //上课地点
-    private String classLocations;
+    //上课时间JSON串
+    private String timeJson;
+    //上课地点JSON串
+    private String locationsJson;
     //限选年级
     private String restrictedGrade;
     //最大人数
@@ -98,24 +98,6 @@ public class ElectiveCourseEntity implements Serializable {
 
     public ElectiveCourseEntity setTeacherName(String teacherName) {
         this.teacherName = teacherName;
-        return this;
-    }
-
-    public String getClassTime() {
-        return classTime;
-    }
-
-    public ElectiveCourseEntity setClassTime(String classTime) {
-        this.classTime = classTime;
-        return this;
-    }
-
-    public String getClassLocations() {
-        return classLocations;
-    }
-
-    public ElectiveCourseEntity setClassLocations(String classLocations) {
-        this.classLocations = classLocations;
         return this;
     }
 
@@ -215,6 +197,24 @@ public class ElectiveCourseEntity implements Serializable {
 
     public ElectiveCourseEntity setRemark(String remark) {
         this.remark = remark;
+        return this;
+    }
+
+    public String getTimeJson() {
+        return timeJson;
+    }
+
+    public ElectiveCourseEntity setTimeJson(String timeJson) {
+        this.timeJson = timeJson;
+        return this;
+    }
+
+    public String getLocationsJson() {
+        return locationsJson;
+    }
+
+    public ElectiveCourseEntity setLocationsJson(String locationsJson) {
+        this.locationsJson = locationsJson;
         return this;
     }
 }

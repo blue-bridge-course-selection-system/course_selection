@@ -1,19 +1,19 @@
 package cn.wisdsoft.api;
 
-import cn.wisdsoft.pojo.StudentEntity;
+import cn.wisdsoft.pojo.*;
 import cn.wisdsoft.util.ElectiveResult;
 import cn.wisdsoft.util.MD5Util;
 import cn.wisdsoft.feign.StudentFeign;
-import cn.wisdsoft.pojo.StudentDo;
-import cn.wisdsoft.pojo.StudentVo;
 import cn.wisdsoft.service.StudentService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -98,8 +98,15 @@ public class StudentApi {
      * @return JSON数据
      */
     @PostMapping("/getcourse")
-    public ElectiveResult getCourse(String token,Integer electiveCourseId){
-        return null;
+    public ElectiveResult getCourse(String token,Long electiveCourseId,String courseGroupId,HttpSession session){
+        StudentVo studentVo = (StudentVo) session.getAttribute(token);
+        if (studentVo == null) {
+            return ElectiveResult.build(410,"token失效");
+        }
+        StudentElectiveEntity entity = new StudentElectiveEntity();
+        entity.setElectiveCourseId(electiveCourseId).setStudentId(studentVo.getUsername()).setStudentName(studentVo.getName())
+                .setCourseFlag("learning").setTimeStamp(new Date());
+        return studentService.insertStudentElective(entity,studentVo.getCollege(),courseGroupId);
     }
 
     /**
@@ -109,8 +116,30 @@ public class StudentApi {
      * @return JSON数据
      */
     @PostMapping("/dropcourse")
-    public ElectiveResult dropCourse(String token,Integer electiveCourseId){
-        return null;
+    public ElectiveResult dropCourse(String token,Long electiveCourseId,HttpSession session){
+        StudentVo studentVo = (StudentVo) session.getAttribute(token);
+        if (studentVo == null) {
+            return ElectiveResult.build(410,"token失效");
+        }
+        studentService.deleteCourse(studentVo.getUsername(),electiveCourseId);
+        return ElectiveResult.ok();
+    }
+
+    /**
+     * 我的选课
+     * @param token 用户令牌
+     * @param courseFlag 是否正在学习
+     * @param session session
+     * @return JSON数据
+     */
+    @GetMapping("/mycourse")
+    public ElectiveResult myCourse(String token,String courseFlag,HttpSession session){
+        StudentVo myToken = (StudentVo) session.getAttribute(token);
+        if (myToken == null) {
+            return ElectiveResult.build(410,"token失效");
+        }
+        String studentId = myToken.getUsername();
+        return studentService.selectElectiveCourse(courseFlag,studentId);
     }
 
 }

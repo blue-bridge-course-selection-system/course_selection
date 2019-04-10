@@ -10,9 +10,9 @@ public class StudentApplicationTests {
     }
     @Test
     public void test(){
-        Student student = new Student();
-        student.setStudentId("132465").setStudentPassword("12255").setStudentName("张三");
-        JSONObject jsonObject = new JSONObject();
+//        Student student = new Student();
+//        student.setStudentId("132465").setStudentPassword("12255").setStudentName("张三");
+//        JSONObject jsonObject = new JSONObject();
 
     }
 

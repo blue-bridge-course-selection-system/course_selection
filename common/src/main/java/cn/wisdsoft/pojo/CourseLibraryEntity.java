@@ -13,7 +13,7 @@ public class CourseLibraryEntity implements Serializable {
     //课程名称
     private String courseLibraryName;
     //学时
-    private Short classTime;
+    private Short classHour;
     //学分
     private Short credit;
     //学院名称
@@ -41,12 +41,12 @@ public class CourseLibraryEntity implements Serializable {
         return this;
     }
 
-    public Short getClassTime() {
-        return classTime;
+    public Short getClassHour() {
+        return classHour;
     }
 
-    public CourseLibraryEntity setClassTime(Short classTime) {
-        this.classTime = classTime;
+    public CourseLibraryEntity setClassHour(Short classHour) {
+        this.classHour = classHour;
         return this;
     }
 

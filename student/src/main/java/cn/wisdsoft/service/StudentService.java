@@ -28,7 +28,25 @@ public interface StudentService {
     /**
      * 插入学生选课信息
      * @param electiveEntity 学生选课子表对象
+     * @param college 学院
+     * @param courseGroupId 课组ID
      * @return JSON数据
      */
-    ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity);
+    ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity,String college,String courseGroupId);
+
+    /**
+     * 查询学生的选课
+     * @param courseFlag 是否正在学习
+     * @param studentId 学号
+     * @return 课程列表
+     */
+    ElectiveResult selectElectiveCourse(String courseFlag,String studentId);
+
+    /**
+     * 退选课程
+     * @param studentId 学生ID
+     * @param electiveCourseId 选课ID
+     * @return JSON数据
+     */
+    ElectiveResult deleteCourse(String studentId,Long electiveCourseId);
 }
