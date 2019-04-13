@@ -13,7 +13,7 @@ public class PerformanceRuleEntity implements Serializable {
     //课程编号
     private Long electiveCourseId;
     //平时成绩
-    private Integer peacetimPerformanceProportion;
+    private Integer peacetimePerformanceProportion;
     //期中成绩
     private Integer midTermPerformanceProportion;
     //期末成绩
@@ -41,12 +41,12 @@ public class PerformanceRuleEntity implements Serializable {
         return this;
     }
 
-    public Integer getPeacetimPerformanceProportion() {
-        return peacetimPerformanceProportion;
+    public Integer getPeacetimePerformanceProportion() {
+        return peacetimePerformanceProportion;
     }
 
-    public PerformanceRuleEntity setPeacetimPerformanceProportion(Integer peacetimPerformanceProportion) {
-        this.peacetimPerformanceProportion = peacetimPerformanceProportion;
+    public PerformanceRuleEntity setPeacetimePerformanceProportion(Integer peacetimePerformanceProportion) {
+        this.peacetimePerformanceProportion = peacetimePerformanceProportion;
         return this;
     }
 

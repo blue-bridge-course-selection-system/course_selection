@@ -15,15 +15,15 @@ public class PerformanceEntity implements Serializable {
     //规则编号
     private Long performanceRuleId;
     //平时成绩
-    private Integer peacetimPerformance;
+    private Double peacetimePerformance;
     //期中成绩
-    private Integer midTermPerformance;
+    private Double midTermPerformance;
     //期末成绩
-    private Integer finalPerformance;
+    private Double finalPerformance;
     //技能考核
-    private Integer skillAssessment;
+    private Double skillAssessment;
     //总分
-    private Integer totalScore;
+    private Double totalScore;
     //是否及格（0：不及格，1：及格）
     private Short passFlag;
     //是否发布（0：不允许修改，1：允许修改）
@@ -60,47 +60,47 @@ public class PerformanceEntity implements Serializable {
         return this;
     }
 
-    public Integer getPeacetimPerformance() {
-        return peacetimPerformance;
+    public Double getPeacetimePerformance() {
+        return peacetimePerformance;
     }
 
-    public PerformanceEntity setPeacetimPerformance(Integer peacetimPerformance) {
-        this.peacetimPerformance = peacetimPerformance;
+    public PerformanceEntity setPeacetimePerformance(Double peacetimePerformance) {
+        this.peacetimePerformance = peacetimePerformance;
         return this;
     }
 
-    public Integer getMidTermPerformance() {
+    public Double getMidTermPerformance() {
         return midTermPerformance;
     }
 
-    public PerformanceEntity setMidTermPerformance(Integer midTermPerformance) {
+    public PerformanceEntity setMidTermPerformance(Double midTermPerformance) {
         this.midTermPerformance = midTermPerformance;
         return this;
     }
 
-    public Integer getFinalPerformance() {
+    public Double getFinalPerformance() {
         return finalPerformance;
     }
 
-    public PerformanceEntity setFinalPerformance(Integer finalPerformance) {
+    public PerformanceEntity setFinalPerformance(Double finalPerformance) {
         this.finalPerformance = finalPerformance;
         return this;
     }
 
-    public Integer getSkillAssessment() {
+    public Double getSkillAssessment() {
         return skillAssessment;
     }
 
-    public PerformanceEntity setSkillAssessment(Integer skillAssessment) {
+    public PerformanceEntity setSkillAssessment(Double skillAssessment) {
         this.skillAssessment = skillAssessment;
         return this;
     }
 
-    public Integer getTotalScore() {
+    public Double getTotalScore() {
         return totalScore;
     }
 
-    public PerformanceEntity setTotalScore(Integer totalScore) {
+    public PerformanceEntity setTotalScore(Double totalScore) {
         this.totalScore = totalScore;
         return this;
     }

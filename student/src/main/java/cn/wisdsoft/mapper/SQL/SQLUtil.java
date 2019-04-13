@@ -81,4 +81,30 @@ public class SQLUtil {
             }
         }.toString();
     }
+
+    /**
+     * 查询成绩
+     *
+     * @param studentId 学生ID
+     * @param termId    学期ID
+     * @return 成绩信息
+     */
+    public String selectAchievement(String studentId, Integer termId) {
+        return new SQL() {
+            {
+                SELECT("p.peacetime_performance,p.mid_term_performance");
+                SELECT("p.final_performance,p.skill_assessment,p.total_score,p.pass_flag");
+                SELECT("pr.peacetime_performance_proportion,pr.mid_term_performance_proportion");
+                SELECT("pr.final_performance_proportion,pr.skill_assessment_proportion");
+                SELECT("e.course_library_name,e.teacher_name");
+                SELECT("e.class_hour,e.credit");
+                FROM("performance AS p, performance_rule AS pr, elective_course AS e");
+                WHERE("p.term_id = " + termId);
+                WHERE("p.allow_flag = 0");
+                WHERE("p.elective_course_id = e.elective_course_id");
+                WHERE("p.student_id = " + studentId);
+                WHERE("p.performance_rule_id = pr.performance_rule_id");
+            }
+        }.toString();
+    }
 }
