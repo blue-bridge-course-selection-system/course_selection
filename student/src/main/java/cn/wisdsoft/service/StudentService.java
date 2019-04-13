@@ -29,10 +29,10 @@ public interface StudentService {
      * 插入学生选课信息
      * @param electiveEntity 学生选课子表对象
      * @param college 学院
-     * @param courseGroupId 课组ID
+     * @param courseGroupName 课组名称
      * @return JSON数据
      */
-    ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity,String college,String courseGroupId);
+    ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity,String college,String courseGroupName);
 
     /**
      * 查询学生的选课

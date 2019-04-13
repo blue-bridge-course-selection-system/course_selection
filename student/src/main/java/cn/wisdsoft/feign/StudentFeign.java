@@ -3,6 +3,7 @@ package cn.wisdsoft.feign;
 import cn.wisdsoft.fallback.StudentFallBack;
 import cn.wisdsoft.util.ElectiveResult;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @ Description：
  */
 @FeignClient(value = "DDMS-INTERFACE",fallback = StudentFallBack.class)
+@Component
 public interface StudentFeign {
 
     /**

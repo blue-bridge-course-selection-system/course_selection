@@ -38,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity,String college,String courseGroupId) {
+    public ElectiveResult insertStudentElective(StudentElectiveEntity electiveEntity,String college,String courseGroupName) {
         //1、判断是否达到最大选课数量
         //查询校选课的数量
         Integer schoolNums = studentMapper.selectCountForElective(electiveEntity.getStudentId(), "校选");
@@ -54,7 +54,7 @@ public class StudentServiceImpl implements StudentService {
         List<String> groups = studentMapper.selectCourseGroups(electiveEntity.getStudentId());
         for (String value : groups) {
             //如果有相同的，则直接返回
-            if(value.equals(courseGroupId))
+            if(value.equals(courseGroupName))
                 return ElectiveResult.build(411,"选择的课程和已选课程相似");
         }
 
@@ -66,6 +66,12 @@ public class StudentServiceImpl implements StudentService {
 
         //4、插入选课
         studentMapper.insertElectiveCourse(electiveEntity);
+        //5、更新备选状态
+        //  查询当前选课对应信息
+        ElectiveCourseEntity one = studentMapper.selectOne(electiveEntity.getElectiveCourseId());
+        if(one.getCurrentNumber().equals(one.getMaxNumber())){
+            studentMapper.updateOptionFlag(electiveEntity.getElectiveCourseId());
+        }
         //5、更新课程当前人数
         studentMapper.updateCurrentNum(electiveEntity.getElectiveCourseId(),1);
         return ElectiveResult.ok();

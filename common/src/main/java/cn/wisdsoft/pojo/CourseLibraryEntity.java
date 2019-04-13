@@ -18,8 +18,8 @@ public class CourseLibraryEntity implements Serializable {
     private Short credit;
     //学院名称
     private String collegeName;
-    //课程组外键
-    private Long courseGroupId;
+    //课程组名称
+    private String courseGroupName;
     //备注
     private String remark;
 
@@ -68,21 +68,21 @@ public class CourseLibraryEntity implements Serializable {
         return this;
     }
 
-    public Long getCourseGroupId() {
-        return courseGroupId;
-    }
-
-    public CourseLibraryEntity setCourseGroupId(Long courseGroupId) {
-        this.courseGroupId = courseGroupId;
-        return this;
-    }
-
     public String getRemark() {
         return remark;
     }
 
     public CourseLibraryEntity setRemark(String remark) {
         this.remark = remark;
+        return this;
+    }
+
+    public String getCourseGroupName() {
+        return courseGroupName;
+    }
+
+    public CourseLibraryEntity setCourseGroupName(String courseGroupName) {
+        this.courseGroupName = courseGroupName;
         return this;
     }
 }

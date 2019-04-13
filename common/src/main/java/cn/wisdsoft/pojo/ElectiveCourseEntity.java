@@ -14,16 +14,14 @@ public class ElectiveCourseEntity implements Serializable {
     private Long courseLibraryId;
     //课程名称
     private String courseLibraryName;
-    //课组编号
-    private Long courseGroupId;
+    //课组名称
+    private String courseGroupName;
     //教师编号
     private String teacherId;
     //教师名称
     private String teacherName;
-    //上课时间JSON串
-    private String timeJson;
-    //上课地点JSON串
-    private String locationsJson;
+    //上课时间和地点JSON串
+    private String timeAndPlace;
     //限选年级
     private String restrictedGrade;
     //最大人数
@@ -44,6 +42,8 @@ public class ElectiveCourseEntity implements Serializable {
     private String collegeName;
     //0未删除、1已删除
     private String deleteFlag;
+    //0是备选，1不是备选
+    private String optionFlag;
     //备注
     private String remark;
 
@@ -71,15 +71,6 @@ public class ElectiveCourseEntity implements Serializable {
 
     public ElectiveCourseEntity setCourseLibraryName(String courseLibraryName) {
         this.courseLibraryName = courseLibraryName;
-        return this;
-    }
-
-    public Long getCourseGroupId() {
-        return courseGroupId;
-    }
-
-    public ElectiveCourseEntity setCourseGroupId(Long courseGroupId) {
-        this.courseGroupId = courseGroupId;
         return this;
     }
 
@@ -200,21 +191,30 @@ public class ElectiveCourseEntity implements Serializable {
         return this;
     }
 
-    public String getTimeJson() {
-        return timeJson;
+    public String getTimeAndPlace() {
+        return timeAndPlace;
     }
 
-    public ElectiveCourseEntity setTimeJson(String timeJson) {
-        this.timeJson = timeJson;
+    public ElectiveCourseEntity setTimeAndPlace(String timeAndPlace) {
+        this.timeAndPlace = timeAndPlace;
         return this;
     }
 
-    public String getLocationsJson() {
-        return locationsJson;
+    public String getOptionFlag() {
+        return optionFlag;
     }
 
-    public ElectiveCourseEntity setLocationsJson(String locationsJson) {
-        this.locationsJson = locationsJson;
+    public ElectiveCourseEntity setOptionFlag(String optionFlag) {
+        this.optionFlag = optionFlag;
+        return this;
+    }
+
+    public String getCourseGroupName() {
+        return courseGroupName;
+    }
+
+    public ElectiveCourseEntity setCourseGroupName(String courseGroupName) {
+        this.courseGroupName = courseGroupName;
         return this;
     }
 }
