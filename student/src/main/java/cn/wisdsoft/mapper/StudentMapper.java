@@ -128,10 +128,18 @@ public interface StudentMapper {
      * 将备选状态改为0（表示已选满）
      *
      * @param electiveCourseId 选课ID
+     * @param courseName       课程名称
+     * @param priority         优先级
+     * @param termId           学期ID
      * @return 成功返回1，否则返回0
      */
-    @Update("update elective_course set option_flag = 0 where elective_course_id = #{electiveCourseId}")
-    Integer updateOptionFlag(Long electiveCourseId);
+    @Update("update elective_course set option_flag = 1 " +
+            "where elective_course_id = #{electiveCourseId} " +
+            "and course_library_name = #{courseName} " +
+            "and priority = #{priority} " +
+            "and term_id = #{termId} " +
+            "and delete_flag = 0")
+    Integer updateOptionFlag(Long electiveCourseId, String courseName, Integer priority, Integer termId);
 
     /**
      * 查询某一条选课信息

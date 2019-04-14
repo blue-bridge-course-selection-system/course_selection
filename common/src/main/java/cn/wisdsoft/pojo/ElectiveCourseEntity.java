@@ -40,6 +40,10 @@ public class ElectiveCourseEntity implements Serializable {
     private Integer termId;
     //学院名称
     private String collegeName;
+    //优先级
+    private Integer priority;
+    //0可修改状态或打回状态，1申请修改,2已提交(成绩)
+    private Integer elective_course_status;
     //0未删除、1已删除
     private String deleteFlag;
     //0是备选，1不是备选
@@ -170,6 +174,24 @@ public class ElectiveCourseEntity implements Serializable {
 
     public ElectiveCourseEntity setCollegeName(String collegeName) {
         this.collegeName = collegeName;
+        return this;
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public ElectiveCourseEntity setPriority(Integer priority) {
+        this.priority = priority;
+        return this;
+    }
+
+    public Integer getElective_course_status() {
+        return elective_course_status;
+    }
+
+    public ElectiveCourseEntity setElective_course_status(Integer elective_course_status) {
+        this.elective_course_status = elective_course_status;
         return this;
     }
 

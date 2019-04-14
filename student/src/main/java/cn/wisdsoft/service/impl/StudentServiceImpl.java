@@ -66,14 +66,17 @@ public class StudentServiceImpl implements StudentService {
 
         //4、插入选课
         studentMapper.insertElectiveCourse(electiveEntity);
-        //5、更新备选状态
+
+        //5、更新课程当前人数
+        studentMapper.updateCurrentNum(electiveEntity.getElectiveCourseId(),1);
+
+        //6、更新备选状态
         //  查询当前选课对应信息
         ElectiveCourseEntity one = studentMapper.selectOne(electiveEntity.getElectiveCourseId());
         if(one.getCurrentNumber().equals(one.getMaxNumber())){
-            studentMapper.updateOptionFlag(electiveEntity.getElectiveCourseId());
+            //如果当前人数和最大人数相等，则将备选课程更新为可选择课程
+            studentMapper.updateOptionFlag(electiveEntity.getElectiveCourseId(),one.getCourseLibraryName(),one.getPriority() + 1,one.getTermId());
         }
-        //5、更新课程当前人数
-        studentMapper.updateCurrentNum(electiveEntity.getElectiveCourseId(),1);
         return ElectiveResult.ok();
     }
 
